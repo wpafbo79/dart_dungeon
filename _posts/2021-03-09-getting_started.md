@@ -2,7 +2,7 @@
 layout: post
 title: Getting Started
 author: Theron E. Weimer, Jr.
-updated: 2021-03-10 11:53:00 -0500
+updated: 2021-03-13 09:33:00 -0500
 ---
 ## Background
 
@@ -46,6 +46,43 @@ A combination of instructions between the official documentation and The Polyglo
     ```shell
     webdev serve
     ```
+
+## Shortcommings of Pub
+
+The `pubspec.yaml` contains the packages dependencies, but it doesn't support a way to indicated that some packages should be installed globally.  For instance, `webdev` and `stagehand` were installed globally.  Ideally, whenever the repository for the project is checked out on a new machine, a simple command could be run to install these and any other dependencies for the project in an identical manner.  Sadly, this is not the case.
+
+### VSCode
+
+If using an IDE like VSCode, it is possible to create a task to do this.
+
+In `.vscode/tasks.json`:
+
+```json
+{
+    "type": "dart",
+    "command": "dart",
+    "args": [
+        "pub",
+        "global",
+        "activate",
+        "webdev"
+    ],
+    "problemMatcher": [],
+    "label": "dart: dart pub global activate webdev"
+}
+```
+
+This is ugly and needs to be done for each global package to install.  However, in the case of VSCode tasks, they can be chained via `dependsOn`, so it isn't so bad to create an overall task to run them all.
+
+```json
+{
+    "problemMatcher": [],
+    "label": "dart: dart pub global activate <all>",
+    "dependsOn": [
+        "dart: dart pub global activate webdev"
+    ]
+},
+```
 
 ## Begin working with Dart
 
