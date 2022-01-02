@@ -2,7 +2,7 @@
 layout: post
 title: Getting Started
 author: Theron E. Weimer, Jr.
-updated: 2021-03-13 09:33:00 -0500
+updated: 2022-01-1 10:51:00 -0500
 ---
 ## Background
 
@@ -23,14 +23,14 @@ A combination of instructions between the official documentation and The Polyglo
 1. Install the web development tool and verify it is working.
 
     ```shell
-    pub global activate webdev
+    dart pub global activate webdev
     webdev
     ```
 
 1. Install Stagehand for scaffolding (not necessary in this case, but Stagehand does provide more scaffolding options beyond the default `dart create`) and verify it is working.
 
     ```shell
-    pub global activate stagehand
+    dart pub global activate stagehand
     stagehand
     ````
 
@@ -38,7 +38,7 @@ A combination of instructions between the official documentation and The Polyglo
 
     ```shell
     stagehand web-simple
-    pub get
+    dart pub get
     ```
 
 1. Serve the application locally.
@@ -81,7 +81,7 @@ This is ugly and needs to be done for each global package to install.  However, 
     "dependsOn": [
         "dart: dart pub global activate webdev"
     ]
-},
+}
 ```
 
 ## Begin working with Dart
